@@ -1,7 +1,18 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setItemInCart } from "../../../redux/cart/reducer";
 import Input from "../../UI/Input";
 import classes from "./MealItemForm.module.css";
 
 const MealItemForm = (props) => {
+
+  const dispatch = useDispatch();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    dispatch(setItemInCart(props.meal))
+  }
+
   return (
     <form className={classes.form}>
       <Input
@@ -15,7 +26,7 @@ const MealItemForm = (props) => {
           defaultValue: "1",
         }}
       />
-      <button>+ Add</button>
+      <button onClick={handleClick}>Add</button>
     </form>
   );
 };

@@ -1,0 +1,15 @@
+Биринчи проектке npm i gh-pages
+package.json го 1 чи строчкасына "homepage": "http://гитхабник.github.io/репозиторийдин аты",
+srciprt--> "predeploy":"npm run build",
+    "deploy":"gh-pages -d build"
+
+Than create repository in github,
+git init
+git remote
+git add
+git commit
+npm run deploy 
+
+//PUBLISHED 
+git push
+

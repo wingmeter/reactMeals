@@ -27,3 +27,11 @@
   object-fit: cover;
   transform: rotateZ(-5deg) translateY(-4rem) translateX(-1rem);
 }
+.border {
+  cursor: pointer;
+  font: inherit;
+  background-color: #4d1601;
+  padding: 0;
+  border-radius: 30px;
+  font-weight: bold;
+}

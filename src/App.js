@@ -1,5 +1,7 @@
 import { format } from "date-fns";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
+import { Provider } from "react-redux";
+import { store } from "./redux/index";
 import Cart from "./components/Cart/Cart";
 import Header from "./components/Layout/Header";
 import Meals from "./components/Meals/Meals";
@@ -9,19 +11,23 @@ const data = [
   },
 ];
 
-function App() {
+function App(props) {
+  const [showModal, setShowModal] = useState(false);
+
   return (
-    <Fragment>
-      {/* {data.map((el) => {
-        return <div>{el.date}</div>;
-      })} */}
-      <h1>ISHTE</h1>
-      <Cart />
-      <Header />
-      <main>
-        <Meals />
-      </main>
-    </Fragment>
+    <Provider store={store}>
+            <Fragment>
+            {/* {data.map((el) => {
+              return <div key={el}>{el.date}</div>;
+            })} */}
+            {showModal ? <Cart setShowModal={setShowModal}/> : null}
+            <Header setShowModal={setShowModal}/>
+            {/* <button onClick={() => setShowModal(true)}></button> */}
+            <main>
+              <Meals/>
+            </main>
+          </Fragment>
+    </Provider>
   );
 }
 
